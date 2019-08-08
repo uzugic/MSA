@@ -32,7 +32,7 @@ public class UserResource {
 		System.out.println("FINISHED! Duration: " + elapsedTime + " ms.");*/
 		
 		Integer i = 0;
-		while (i < 1000) {
+		while (i < 100) {
 			
 			String message = "Id is: " + i.toString();
 			kafkaTemplate.send(TOPIC, message);
