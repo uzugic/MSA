@@ -11,25 +11,34 @@ public class UserResource {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
-	private static final String TOPIC = "RedisTopic";
+	private static final String TOPIC = "redistopic";
 	
 	@Bean
-	public void post() {
+	public void post() throws InterruptedException {
 		
-		for(Integer i = 0; i < 1000; i++) {
+		/*long startTime = System.currentTimeMillis();
+		for(Integer i = 0; i < 1000000; i++) {
 			
 			String message = "Id is: " + i.toString();
 			
 			kafkaTemplate.send(TOPIC, message);
 			
-			System.out.println("Sent message with content: " + message);
+			//System.out.println("Sent message with content: " + message);
 			
-			try {
-				Thread.sleep(400);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		}
+		
+		long stopTime = System.currentTimeMillis();
+	    long elapsedTime = stopTime - startTime;
+		System.out.println("FINISHED! Duration: " + elapsedTime + " ms.");*/
+		
+		Integer i = 0;
+		while (i < 1000) {
+			
+			String message = "Id is: " + i.toString();
+			kafkaTemplate.send(TOPIC, message);
+			System.out.println("Sent message with content: " + message);
+			Thread.sleep(600);
+			i++;
 		}
 		
 	}
