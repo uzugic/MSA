@@ -52,9 +52,11 @@ public class Listener {
 	public void consume(String message) {
 		
 		//System.out.println("Message has arrived: Content: " + message);
-		String[] spt = message.split("Id is: ");
-		String id = spt[1];
-		if (id != null) {
+		if (message.contains("Id is: ")) {
+			
+			String[] spt = message.split("Id is: ");
+			String id = spt[1];
+	
 			HashMap<String, String> hmap = new HashMap<String, String>();
 			hmap.put("id", id);
 			hmap.put("username", "User" + id);
@@ -69,7 +71,6 @@ public class Listener {
 			hmap.put("attribute6", "attribute6Val");
 			jedis.hmset("user:" + id, hmap);
 		}
-		
 	}
 	
 	@PreDestroy
