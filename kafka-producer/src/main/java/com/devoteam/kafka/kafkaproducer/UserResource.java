@@ -1,7 +1,9 @@
 package com.devoteam.kafka.kafkaproducer;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -16,20 +18,11 @@ public class UserResource {
 	
 	private static final String TOPIC = "redistopic";
 	
-	@Bean
+	@PostConstruct
 	public void post() throws InterruptedException, JsonProcessingException {
 		
 
-		/*for(Integer i = 0; i < 1000000; i++) {
-			
-			String message = "Id is: " + i.toString();
-			
-			kafkaTemplate.send(TOPIC, message);
-			
-		}*/
-		
-		Integer i = 1;
-		while (i <= 1000) {
+		for(Integer i = 0; i < 1009; i++) {
 			
 			Model m = new Model();
 			m.setId("user:" + i);
@@ -49,8 +42,7 @@ public class UserResource {
 
 			kafkaTemplate.send(TOPIC, json);
 			System.out.println("MESSAGE SENT!: " + json);
-			//Thread.sleep(500);
-			i++;
+			
 		}
 		
 	}
