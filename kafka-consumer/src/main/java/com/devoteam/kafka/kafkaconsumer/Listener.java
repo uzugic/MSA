@@ -43,7 +43,8 @@ public class Listener {
 			jedis.auth(password);
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 		}
 		
 		/*Set<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
@@ -62,23 +63,28 @@ public class Listener {
 		
 		System.out.println("Message has arrived: Content: " + message);
 		
-		ObjectMapper objectMapper = new ObjectMapper();
-		 
-		Model m = objectMapper.readValue(message, Model.class);
-		
-		HashMap<String, String> hmap = new HashMap<String, String>();
-		hmap.put("id", m.getId());
-		hmap.put("username", m.getUsername());
-		hmap.put("password", m.getPassword());
-		hmap.put("age", m.getAge().toString());
-		hmap.put("gender", m.getGender());
-		hmap.put("attribute1", m.getAttribute1());
-		hmap.put("attribute2", m.getAttribute2());
-		hmap.put("attribute3", m.getAttribute3());
-		hmap.put("attribute4", m.getAttribute4());
-		hmap.put("attribute5", m.getAttribute5());
-		hmap.put("attribute6", m.getAttribute6());
-		jedis.hmset(m.getId(), hmap);
+		try {	
+			ObjectMapper objectMapper = new ObjectMapper();
+			 
+			Model m = objectMapper.readValue(message, Model.class);
+			
+			HashMap<String, String> hmap = new HashMap<String, String>();
+			hmap.put("id", m.getId());
+			hmap.put("username", m.getUsername());
+			hmap.put("password", m.getPassword());
+			hmap.put("age", m.getAge().toString());
+			hmap.put("gender", m.getGender());
+			hmap.put("attribute1", m.getAttribute1());
+			hmap.put("attribute2", m.getAttribute2());
+			hmap.put("attribute3", m.getAttribute3());
+			hmap.put("attribute4", m.getAttribute4());
+			hmap.put("attribute5", m.getAttribute5());
+			hmap.put("attribute6", m.getAttribute6());
+			jedis.hmset(m.getId(), hmap);
+		}
+		catch (Exception e) {
+			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
+		}
 
 	}
 	
