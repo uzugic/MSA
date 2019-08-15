@@ -9,37 +9,45 @@ import java.util.Set;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPoolConfig;
 
 public class JedisTest {
+	
+	public static final int  DEFAULT_TIMEOUT      = 5000;
+    public static final int    DEFAULT_REDIRECTIONS = 5;
 	
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		
-		Jedis jedis = new Jedis("10.0.200.232", 6379);
-		jedis.auth("micacar");
+		Jedis jedis = new Jedis("localhost", 6379);
+		jedis.auth("mica123");
 		
+		String test = "lemi je govedo";
+		
+		String asd[] = test.split("jsade");
+		
+		System.out.println(asd[1]);
+	
 		/*Set<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
 		connectionPoints.add(new HostAndPort("10.0.200.232", 7000));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7001));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7002));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7003));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7004));
-        connectionPoints.add(new HostAndPort("10.0.200.232", 7005));*/
+        connectionPoints.add(new HostAndPort("10.0.200.232", 7005));
 
-        //JedisCluster jedis = new JedisCluster(connectionPoints);
+        JedisCluster jedis = new JedisCluster(connectionPoints, DEFAULT_TIMEOUT, DEFAULT_TIMEOUT, DEFAULT_REDIRECTIONS, new JedisPoolConfig());*/
 		
-		Integer rowsNum = 1000; 
+		Integer rowsNum = 1000000; 
 		
 		//loadDB(rowsNum, jedis);
 		//periodicAddition(rowsNum, 3600000, jedis);
-		fetchUser("mica", jedis);
-		fetchUser("uros", jedis);
 		jedis.close();
 
 	}
 	
 	public static void fetchUser(String id, Jedis jedis) {
-		HashMap<String, String> res = (HashMap<String, String>) jedis.hgetAll("user:" + id.toString());
+		HashMap<String, String> res = (HashMap<String, String>) jedis.hgetAll(id);
 		for(Entry<String, String> e: res.entrySet()) {
 			System.out.println("RESULT - " + e.getKey() + ": " + e.getValue());
 		}

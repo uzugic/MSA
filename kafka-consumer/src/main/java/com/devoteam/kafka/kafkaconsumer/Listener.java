@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
@@ -34,8 +38,13 @@ public class Listener {
 	@PostConstruct
 	public void init() {
 		
-		jedis = new Jedis(host, port);
-		jedis.auth(password);
+		try {			
+			jedis = new Jedis(host, port);
+			jedis.auth(password);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		/*Set<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
 		connectionPoints.add(new HostAndPort("10.0.200.232", 7000));
@@ -49,28 +58,28 @@ public class Listener {
 	}
 	
 	@KafkaListener(topics = "redistopic", groupId = "group_id")
-	public void consume(String message) {
+	public void consume(String message) throws JsonParseException, JsonMappingException, IOException {
 		
-		//System.out.println("Message has arrived: Content: " + message);
-		if (message.contains("Id is: ")) {
-			
-			String[] spt = message.split("Id is: ");
-			String id = spt[1];
-	
-			HashMap<String, String> hmap = new HashMap<String, String>();
-			hmap.put("id", id);
-			hmap.put("username", "User" + id);
-			hmap.put("password", "Password" + id);
-			hmap.put("age", "27");
-			hmap.put("gender", "TRIGGERED");
-			hmap.put("attribute1", "attribute1Val");
-			hmap.put("attribute2", "attribute2Val");
-			hmap.put("attribute3", "attribute3Val");
-			hmap.put("attribute4", "attribute4Val");
-			hmap.put("attribute5", "attribute5Val");
-			hmap.put("attribute6", "attribute6Val");
-			jedis.hmset("user:" + id, hmap);
-		}
+		System.out.println("Message has arrived: Content: " + message);
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		 
+		Model m = objectMapper.readValue(message, Model.class);
+		
+		HashMap<String, String> hmap = new HashMap<String, String>();
+		hmap.put("id", m.getId());
+		hmap.put("username", m.getUsername());
+		hmap.put("password", m.getPassword());
+		hmap.put("age", m.getAge().toString());
+		hmap.put("gender", m.getGender());
+		hmap.put("attribute1", m.getAttribute1());
+		hmap.put("attribute2", m.getAttribute2());
+		hmap.put("attribute3", m.getAttribute3());
+		hmap.put("attribute4", m.getAttribute4());
+		hmap.put("attribute5", m.getAttribute5());
+		hmap.put("attribute6", m.getAttribute6());
+		jedis.hmset(m.getId(), hmap);
+
 	}
 	
 	@PreDestroy

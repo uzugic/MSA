@@ -1,4 +1,4 @@
-package com.devoteam.kafka.kafkaconsumer;
+package com.devoteam.kafka.kafkaproducer;
 
 public class Model {
 	
