@@ -29,14 +29,6 @@ public class WebController {
 	@Autowired
 	private Utility utils;
 
-	@GetMapping(value = "/readItems")
-
-	public HashMap<String, String> readItems() {
-
-		HashMap<String, String> res = (HashMap<String, String>) jedis.hgetAll("user:2");
-		return res;
-	}
-
 	@GetMapping(value = "/readItems/{id}")
 
 	public HashMap<String, String> findItem(@PathVariable("id") final String id) {
