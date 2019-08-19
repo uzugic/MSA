@@ -40,8 +40,8 @@ public class UserResource {
 			String json = objectMapper.writeValueAsString(m);
 
 			kafkaTemplate.send(TOPIC, json);
-			System.out.println("MESSAGE SENT!: " + json);
-			
+			//System.out.println("MESSAGE SENT!: " + json);
+			Thread.sleep(500);
 		}
 		
 	}
