@@ -3,18 +3,17 @@ package com.devoteam.kafka.kafkaconsumer;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.config.KafkaListenerEndpointRegistry;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import redis.clients.jedis.HostAndPort;
@@ -26,8 +25,9 @@ import redis.clients.jedis.JedisCluster;
 public class Listener {
 	
 	private Jedis jedis; 
-	private boolean redisConnected;    //flag which shows if we have connection towards redis db
-	private HashSet<Model> missingRecords;    //set of records which haven't been written successfully to redis
+	
+	@Autowired
+	private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
 	
 	@Value("${redis.host}")
     private String host;
@@ -38,14 +38,14 @@ public class Listener {
 	@Value("${redis.password}")
     private String password;
 	
+	@Value("${redis.retry.interval.ms}")
+    private Integer retryInterval;
+	
 	@PostConstruct
-	public void init() {
+	public void init() throws InterruptedException {
 		
 		//upon bean creation initialize set of missing records and connection towards redis
-		missingRecords = new HashSet<Model>();
-		
 		initializeRedis();
-		
 		//cluster setup, tbd
 		/*Set<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
 		connectionPoints.add(new HostAndPort("10.0.200.232", 7000));
@@ -58,47 +58,34 @@ public class Listener {
         jedis = new JedisCluster(connectionPoints);*/
 	}
 	
-	public void initializeRedis() {
+	public void initializeRedis() throws InterruptedException {
 		
 		try {			
 			jedis = new Jedis(host, port);    //try to connect to redis
 			jedis.auth(password);
-			redisConnected = true;    //set flag to true if successful
+			kafkaListenerEndpointRegistry.start();   //enable message consumption
 			System.out.println("Connection to redis successful!");
 		}
-		catch (Exception e) {
+		catch (Exception e) {	//if connecting to redis was not successful
 			//e.printStackTrace();
-			redisConnected = false;   //set flag to false if not successful
+			kafkaListenerEndpointRegistry.stop();  //stop message consumption from kafka
 			System.out.println("Connection to redis failed!");
 			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
+			Thread.sleep(retryInterval);	//attempt to reconnect every X seconds, specified in properties file
+			System.out.println("ATTEMPTING TO RECONNECT TO REDIS");
+			initializeRedis();
 		}
 	}
 	
-	@KafkaListener(topics = "redistopic", groupId = "group_id")
-	public void consume(String message) {
-		
+	@KafkaListener(topics = "${kafka.topic}", id = "kafkalistener", groupId = "${kafka.group.id}")
+	public void consume(String message) throws InterruptedException  {	
+			
 		Model m = parseJson(message);   //try to parse the incoming message
 		
-		if (m == null) {    //if parse was not successful, that means that record was invalid, exit the function
-			return;
+		if (m != null) {    //if parse was successful, try to insert the record into redis
+			insertRecord(m);
 		}
-			
-		if(redisConnected) {   // are we connected to redis?
-				
-			if(!missingRecords.isEmpty()) {	  //if we are connected to redis, and missing records set is not empty
-				insertMissingRecords();    //write the missing data to redis
-			}
-				
-			insertRecord(m);    //attempt to write the new record to redis
-			
-		}
-			
-		else {   //if there is no connection towards redis
-			missingRecords.add(m);   //add record to the missing records set
-			System.out.println("Added to missing records! User id: " + m.getId());	
-			initializeRedis();   //attempt to re-establish connection
-		}
-
+		
 	}
 	
 	public Model parseJson(String message) {
@@ -114,7 +101,7 @@ public class Listener {
 		}
 	}
 	
-	public void insertRecord(Model m) {   //function which inserts the record into redis 
+	public void insertRecord(Model m) throws InterruptedException {   //function which inserts the record into redis 
 		HashMap<String, String> hmap = new HashMap<String, String>();  //hashmap is used to insert a new hash to redis
 		hmap.put("id", m.getId());
 		hmap.put("username", m.getUsername());
@@ -133,22 +120,10 @@ public class Listener {
 		}
 		catch (Exception e) {
 			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
-			missingRecords.add(m);
-			System.out.println("Added to missing records! User id: " + m.getId());	
-			initializeRedis();   //if we lost the connection to redis meanwhile, insert the record to missing records set
-			// and attempt to re-establish the connection to redis and update the flag
+			initializeRedis();   //if we lost the connection to redis, attempt to reconnect
 		}
 	}
 	
-	public void insertMissingRecords() {    
-		Iterator<Model> i = missingRecords.iterator();    //iterator which goes through entire set of missing records
-		while (i.hasNext()) {	//as long as the set is not empty
-		   Model md = i.next();   //get the next missing record
-		   System.out.println("MISSING RECORD:");
-		   insertRecord(md);   //insert the missing record to redis
-		   i.remove();	//upon insertion, remove the record from set
-		}
-	}
 	
 	@PreDestroy
 	public void delete() throws IOException {    //before we destroy the bean, close the connection towards redis
