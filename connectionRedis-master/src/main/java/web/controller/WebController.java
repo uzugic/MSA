@@ -31,34 +31,14 @@ public class WebController {
 
 	@GetMapping(value = "/readItems/{id}")
 
-	public HashMap<String, String> findItem(@PathVariable("id") final String id) {
+	public ResponseEntity<HashMap<String, String>> findItem(@PathVariable("id") final String id) {
 
 		HashMap<String, String> res = (HashMap<String, String>) jedis.hgetAll("user:" + id);
-
-		return res;
-
-	}
-
-	@PostMapping("/createItems")
-	public ResponseEntity<HashMap<String, String>> createItems() {
-
-		for (Integer i = 0; i < 10; i++) {
-			HashMap<String, String> hmap = new HashMap<>();
-			hmap.put("id", i.toString());
-			hmap.put("username", "User" + i);
-			hmap.put("password", "Password" + i);
-			hmap.put("age", "27");
-			hmap.put("gender", "male");
-			hmap.put("attribute1", "attribute1Val");
-			hmap.put("attribute2", "attribute2Val");
-			hmap.put("attribute3", "attribute3Val");
-			hmap.put("attribute4", "attribute4Val");
-			hmap.put("attribute5", "attribute5Val");
-			hmap.put("attribute6", "attribute6Val");
-			jedis.hmset("user:" + i, hmap);
-
+		if (res.isEmpty()) {
+			return new ResponseEntity(null, HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<HashMap<String, String>>(HttpStatus.CREATED);
+		return new ResponseEntity(res, HttpStatus.OK);
+
 	}
 
 	@PostConstruct
