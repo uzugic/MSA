@@ -1,9 +1,16 @@
 package com.devoteam.kafka.kafkaconsumer;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -24,7 +31,8 @@ import redis.clients.jedis.JedisCluster;
 @Service
 public class Listener {
 	
-	private Jedis jedis; 
+	private Jedis jedis;
+	//private JedisCluster jedisCluster;
 	
 	@Autowired
 	private KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
@@ -41,13 +49,23 @@ public class Listener {
 	@Value("${redis.retry.interval.ms}")
     private Integer retryInterval;
 	
+	@Value("${logging.file}")
+    private String loggingFile;
+	
+	private static final Logger LOGGER = Logger.getLogger(Listener.class.getName());
+	
 	@PostConstruct
-	public void init() throws InterruptedException {
+	public void init() throws InterruptedException, SecurityException, IOException {
 		
-		//upon bean creation initialize set of missing records and connection towards redis
+		//upon bean creation initialize logger handler (output file)
+		LOGGER.setUseParentHandlers(false);
+		setLoggerHandler();
+		LOGGER.log(Level.INFO, "Kafka consumer initialized!");
+		//initialize connection towards redis
 		initializeRedis();
-		//cluster setup, tbd
-		/*Set<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
+		
+		//cluster setup, usage to be discussed
+		/*HashSet<HostAndPort> connectionPoints = new HashSet<HostAndPort>();
 		connectionPoints.add(new HostAndPort("10.0.200.232", 7000));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7001));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7002));
@@ -55,7 +73,7 @@ public class Listener {
         connectionPoints.add(new HostAndPort("10.0.200.232", 7004));
         connectionPoints.add(new HostAndPort("10.0.200.232", 7005));
 
-        jedis = new JedisCluster(connectionPoints);*/
+        jedisCluster = new JedisCluster(connectionPoints);*/
 	}
 	
 	public void initializeRedis() throws InterruptedException {
@@ -64,17 +82,37 @@ public class Listener {
 			jedis = new Jedis(host, port);    //try to connect to redis
 			jedis.auth(password);
 			kafkaListenerEndpointRegistry.start();   //enable message consumption
-			System.out.println("Connection to redis successful!");
+			LOGGER.log(Level.INFO, "Connection to redis successful!");
 		}
 		catch (Exception e) {	//if connecting to redis was not successful
-			//e.printStackTrace();
+			jedis.close();   //close session
 			kafkaListenerEndpointRegistry.stop();  //stop message consumption from kafka
-			System.out.println("Connection to redis failed!");
-			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
+			LOGGER.log(Level.SEVERE, "Connection to redis failed!");
+			LOGGER.log(Level.SEVERE, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			Thread.sleep(retryInterval);	//attempt to reconnect every X seconds, specified in properties file
-			System.out.println("ATTEMPTING TO RECONNECT TO REDIS");
-			initializeRedis();
+			LOGGER.log(Level.INFO, "ATTEMPTING TO RECONNECT TO REDIS");
+			initializeRedis();	//try to reconnect
 		}
+	}
+	
+	public void setLoggerHandler() throws SecurityException, IOException {
+		
+		FileHandler handler = new FileHandler(loggingFile, true);
+		handler.setFormatter(new SimpleFormatter() {
+            private static final String format = "[%1$tF %1$tT] [%2$-7s] %3$s %n";
+
+            @Override
+            public synchronized String format(LogRecord lr) {
+                return String.format(format,
+                        new Date(lr.getMillis()),
+                        lr.getLevel().getLocalizedName(),
+                        lr.getMessage()
+                );
+            }
+        });
+		LOGGER.addHandler(handler);
+		ConsoleHandler chandler = new ConsoleHandler();
+		LOGGER.addHandler(chandler);
 	}
 	
 	@KafkaListener(topics = "${kafka.topic}", id = "kafkalistener", groupId = "${kafka.group.id}")
@@ -92,11 +130,12 @@ public class Listener {
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();		 
 			Model m = objectMapper.readValue(message, Model.class);	//deserialize the JSON message we received, create model object
+			LOGGER.log(Level.INFO, "Record parsed successfully. Record id: " + m.getId());
 			return m;
 		}
 		catch (Exception e) {
-			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
-			System.out.println("JSON parse failed due to invalid record!");	//if parse was unsuccessful, record is not valid
+			LOGGER.log(Level.WARNING, "JSON parse failed due to invalid record!");	//if parse was unsuccessful, record is not valid, ignore it
+			LOGGER.log(Level.WARNING, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			return null;
 		}
 	}
@@ -116,10 +155,10 @@ public class Listener {
 		hmap.put("attribute6", m.getAttribute6());
 		try {
 			jedis.hmset(m.getId(), hmap);   //add a new hash to redis
-			System.out.println("Successfully written to Redis! User id: " + m.getId());
+			LOGGER.log(Level.INFO, "Record successfully written to Redis! Record id: " + m.getId());
 		}
 		catch (Exception e) {
-			System.out.println("CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
+			LOGGER.log(Level.SEVERE, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			initializeRedis();   //if we lost the connection to redis, attempt to reconnect
 		}
 	}
