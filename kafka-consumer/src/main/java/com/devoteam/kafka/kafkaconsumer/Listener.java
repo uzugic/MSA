@@ -165,6 +165,7 @@ public class Listener {
 			LOGGER.log(Level.INFO, "Record successfully written to Redis! Record id: " + m.getId());
 		}
 		catch (Exception e) {
+			LOGGER.log(Level.SEVERE, "Writing to Redis has failed!");
 			LOGGER.log(Level.SEVERE, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			initializeRedis();   //if we lost the connection to redis, attempt to reconnect
 		}
@@ -173,6 +174,7 @@ public class Listener {
 	
 	@PreDestroy
 	public void delete() throws IOException {    //before we destroy the bean, close the connection towards redis
+		LOGGER.log(Level.INFO, "Application shutting down!");
 		jedis.close();
 	}
 
