@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
@@ -52,14 +51,20 @@ public class Listener {
 	@Value("${logging.file}")
     private String loggingFile;
 	
-	private static final Logger LOGGER = Logger.getLogger(Listener.class.getName());
+	@Value("${spring.log.level}")
+    private String loggingLevel;
+	
+	private static Logger LOGGER = Logger.getLogger(Listener.class.getName());
 	
 	@PostConstruct
 	public void init() throws InterruptedException, SecurityException, IOException {
 		
-		//upon bean creation initialize logger handler (output file)
+		//upon bean creation disable default logger handlers
 		LOGGER.setUseParentHandlers(false);
-		setLoggerHandler();
+		Level level = Level.parse(loggingLevel);  //get logging level specified in properties
+		//then initialize logger handler (output file)
+		setLoggerHandler(level);  //set new handlers
+		LOGGER.setLevel(level);  //set the level to the one specified in properties
 		LOGGER.log(Level.INFO, "Kafka consumer initialized!");
 		//initialize connection towards redis
 		initializeRedis();
@@ -81,7 +86,7 @@ public class Listener {
 		try {			
 			jedis = new Jedis(host, port);    //try to connect to redis
 			jedis.auth(password);
-			kafkaListenerEndpointRegistry.start();   //enable message consumption
+			kafkaListenerEndpointRegistry.start();   //enable message consumption from kafka
 			LOGGER.log(Level.INFO, "Connection to redis successful!");
 		}
 		catch (Exception e) {	//if connecting to redis was not successful
@@ -91,15 +96,15 @@ public class Listener {
 			LOGGER.log(Level.SEVERE, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			Thread.sleep(retryInterval);	//attempt to reconnect every X seconds, specified in properties file
 			LOGGER.log(Level.INFO, "ATTEMPTING TO RECONNECT TO REDIS");
-			initializeRedis();	//try to reconnect
+			initializeRedis();	//try to reconnect again
 		}
 	}
 	
-	public void setLoggerHandler() throws SecurityException, IOException {
+	public void setLoggerHandler(Level l) throws SecurityException, IOException {
 		
-		FileHandler handler = new FileHandler(loggingFile, true);
+		FileHandler handler = new FileHandler(loggingFile, true);	//create new file handler, specify path and append flag
 		handler.setFormatter(new SimpleFormatter() {
-            private static final String format = "[%1$tF %1$tT] [%2$-7s] %3$s %n";
+			private static final String format = "[%1$tF %1$tT.%1$tL] [%2$-7s] %3$s %n";	//define log format
 
             @Override
             public synchronized String format(LogRecord lr) {
@@ -110,9 +115,11 @@ public class Listener {
                 );
             }
         });
-		LOGGER.addHandler(handler);
-		ConsoleHandler chandler = new ConsoleHandler();
+		LOGGER.addHandler(handler);	//add a file handler to the logger
+		ConsoleHandler chandler = new ConsoleHandler();	 //create a console handler and add it to the logger
 		LOGGER.addHandler(chandler);
+		handler.setLevel(l);	//set the logging level of the handler as specified in properties
+		chandler.setLevel(l);
 	}
 	
 	@KafkaListener(topics = "${kafka.topic}", id = "kafkalistener", groupId = "${kafka.group.id}")
@@ -134,8 +141,8 @@ public class Listener {
 			return m;
 		}
 		catch (Exception e) {
-			LOGGER.log(Level.WARNING, "JSON parse failed due to invalid record!");	//if parse was unsuccessful, record is not valid, ignore it
-			LOGGER.log(Level.WARNING, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
+			LOGGER.log(Level.SEVERE, "JSON parse failed due to invalid record!");	//if parse was unsuccessful, record is not valid, ignore it
+			LOGGER.log(Level.SEVERE, "CAUSE: "  + e.getCause() + "; ERROR MESSAGE - " + e.getMessage());
 			return null;
 		}
 	}

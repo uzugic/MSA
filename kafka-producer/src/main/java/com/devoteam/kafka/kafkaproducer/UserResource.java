@@ -15,20 +15,19 @@ public class UserResource {
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
 	private static final String TOPIC = "redistopic";
+	private static final Integer RECORDS_COUNT = 1000;
 	
 	@Bean
 	public void post() throws InterruptedException, JsonProcessingException {
-		
-		Integer recordsCount = 1000;
 
-		for(Integer i = 1; i <= recordsCount; i++) {
+		for(Integer i = 1; i <= RECORDS_COUNT; i++) {
 			
 			Model m = new Model();
 			m.setId("user:" + i);
 			m.setUsername("User" + i);
 			m.setPassword("Password" + i);
 			m.setAge(26);
-			m.setGender("TRIGGERED");
+			m.setGender("male");
 			m.setAttribute1("attr1:" + i);
 			m.setAttribute2("attr2:" + i);
 			m.setAttribute3("attr3:" + i);
@@ -40,8 +39,8 @@ public class UserResource {
 			String json = objectMapper.writeValueAsString(m);
 
 			kafkaTemplate.send(TOPIC, json);
-			//System.out.println("MESSAGE SENT!: " + json);
-			Thread.sleep(500);
+			System.out.println("MESSAGE SENT!: " + json);
+			//Thread.sleep(1000);
 		}
 		
 	}

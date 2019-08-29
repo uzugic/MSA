@@ -1,0 +1,172 @@
+2019-08-29 13:43:24.522  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : Starting KafkaConsumerApplication on ANGSTROM with PID 9444 (started by Mile in C:\Users\Mile\Desktop\MSA GIT\MSA\kafka-consumer)
+2019-08-29 13:43:24.522  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : No active profile set, falling back to default profiles: default
+2019-08-29 13:43:24.809  INFO 9444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$c155d32d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-08-29 13:43:24.840] [INFO   ] Kafka consumer initialized! 
+[2019-08-29 13:43:24.856] [INFO   ] Connection to redis successful! 
+2019-08-29 13:43:25.041  INFO 9444 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-08-29 13:43:25.071  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
+2019-08-29 13:43:25.071  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
+2019-08-29 13:43:25.159  INFO 9444 --- [main] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
+2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
+2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
+2019-08-29 13:43:25.170  INFO 9444 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
+2019-08-29 13:43:25.186  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : Started KafkaConsumerApplication in 0.867 seconds (JVM running for 1.353)
+2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Discovered group coordinator ANGSTROM:9092 (id: 2147483647 rack: null)
+2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Revoking previously assigned partitions []
+2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions revoked: []
+2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] (Re-)joining group
+2019-08-29 13:43:25.248  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Successfully joined group with generation 13
+2019-08-29 13:43:25.248  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Setting newly assigned partitions [redistopic-0]
+2019-08-29 13:43:25.264  INFO 9444 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions assigned: [redistopic-0]
+[2019-08-29 13:43:37.788] [INFO   ] Record parsed successfully. Record id: user:1 
+[2019-08-29 13:43:37.803] [INFO   ] Record successfully written to Redis! Record id: user:1 
+[2019-08-29 13:43:47.809] [INFO   ] Record parsed successfully. Record id: user:2 
+[2019-08-29 13:43:47.814] [INFO   ] Record successfully written to Redis! Record id: user:2 
+[2019-08-29 13:43:57.839] [INFO   ] Record parsed successfully. Record id: user:3 
+[2019-08-29 13:43:57.843] [INFO   ] Record successfully written to Redis! Record id: user:3 
+[2019-08-29 13:44:07.859] [INFO   ] Record parsed successfully. Record id: user:4 
+[2019-08-29 13:44:07.860] [INFO   ] Record successfully written to Redis! Record id: user:4 
+[2019-08-29 13:44:17.882] [INFO   ] Record parsed successfully. Record id: user:5 
+[2019-08-29 13:44:17.887] [INFO   ] Record successfully written to Redis! Record id: user:5 
+[2019-08-29 13:44:27.909] [INFO   ] Record parsed successfully. Record id: user:6 
+[2019-08-29 13:44:27.920] [INFO   ] Record successfully written to Redis! Record id: user:6 
+[2019-08-29 13:44:37.936] [INFO   ] Record parsed successfully. Record id: user:7 
+[2019-08-29 13:44:37.938] [INFO   ] Record successfully written to Redis! Record id: user:7 
+[2019-08-29 13:44:47.954] [INFO   ] Record parsed successfully. Record id: user:8 
+[2019-08-29 13:44:47.957] [INFO   ] Record successfully written to Redis! Record id: user:8 
+[2019-08-29 13:44:57.981] [INFO   ] Record parsed successfully. Record id: user:9 
+[2019-08-29 13:44:57.981] [INFO   ] Record successfully written to Redis! Record id: user:9 
