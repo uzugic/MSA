@@ -1,9 +1,10 @@
-2019-08-29 13:43:24.522  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : Starting KafkaConsumerApplication on ANGSTROM with PID 9444 (started by Mile in C:\Users\Mile\Desktop\MSA GIT\MSA\kafka-consumer)
-2019-08-29 13:43:24.522  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : No active profile set, falling back to default profiles: default
-2019-08-29 13:43:24.809  INFO 9444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$c155d32d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-[2019-08-29 13:43:24.840] [INFO   ] Kafka consumer initialized! 
-[2019-08-29 13:43:24.856] [INFO   ] Connection to redis successful! 
-2019-08-29 13:43:25.041  INFO 9444 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+
+2019-08-30 13:13:37.869  INFO 1104 --- [main] c.d.k.k.KafkaConsumerApplication         : Starting KafkaConsumerApplication on ANGSTROM with PID 1104 (started by Mile in C:\Users\Mile\Desktop\MSA GIT\MSA\kafka-consumer)
+2019-08-30 13:13:37.871  INFO 1104 --- [main] c.d.k.k.KafkaConsumerApplication         : No active profile set, falling back to default profiles: default
+2019-08-30 13:13:38.139  INFO 1104 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$6acb8f0c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2019-08-30 13:13:38.186] [INFO   ] Kafka consumer initialized! 
+[2019-08-30 13:13:38.192] [INFO   ] Connection to redis successful! 
+2019-08-30 13:13:38.358  INFO 1104 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
 	bootstrap.servers = [localhost:9092]
@@ -70,10 +71,10 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2019-08-29 13:43:25.071  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
-2019-08-29 13:43:25.071  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
-2019-08-29 13:43:25.159  INFO 9444 --- [main] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
-2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2019-08-30 13:13:38.427  INFO 1104 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
+2019-08-30 13:13:38.427  INFO 1104 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
+2019-08-30 13:13:38.489  INFO 1104 --- [main] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
+2019-08-30 13:13:38.505  INFO 1104 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	auto.commit.interval.ms = 5000
 	auto.offset.reset = latest
 	bootstrap.servers = [localhost:9092]
@@ -140,38 +141,418 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
-2019-08-29 13:43:25.170  INFO 9444 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
-2019-08-29 13:43:25.170  INFO 9444 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
-2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
-2019-08-29 13:43:25.186  INFO 9444 --- [main] c.d.k.k.KafkaConsumerApplication         : Started KafkaConsumerApplication in 0.867 seconds (JVM running for 1.353)
-2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Discovered group coordinator ANGSTROM:9092 (id: 2147483647 rack: null)
-2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Revoking previously assigned partitions []
-2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions revoked: []
-2019-08-29 13:43:25.186  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] (Re-)joining group
-2019-08-29 13:43:25.248  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Successfully joined group with generation 13
-2019-08-29 13:43:25.248  INFO 9444 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Setting newly assigned partitions [redistopic-0]
-2019-08-29 13:43:25.264  INFO 9444 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions assigned: [redistopic-0]
-[2019-08-29 13:43:37.788] [INFO   ] Record parsed successfully. Record id: user:1 
-[2019-08-29 13:43:37.803] [INFO   ] Record successfully written to Redis! Record id: user:1 
-[2019-08-29 13:43:47.809] [INFO   ] Record parsed successfully. Record id: user:2 
-[2019-08-29 13:43:47.814] [INFO   ] Record successfully written to Redis! Record id: user:2 
-[2019-08-29 13:43:57.839] [INFO   ] Record parsed successfully. Record id: user:3 
-[2019-08-29 13:43:57.843] [INFO   ] Record successfully written to Redis! Record id: user:3 
-[2019-08-29 13:44:07.859] [INFO   ] Record parsed successfully. Record id: user:4 
-[2019-08-29 13:44:07.860] [INFO   ] Record successfully written to Redis! Record id: user:4 
-[2019-08-29 13:44:17.882] [INFO   ] Record parsed successfully. Record id: user:5 
-[2019-08-29 13:44:17.887] [INFO   ] Record successfully written to Redis! Record id: user:5 
-[2019-08-29 13:44:27.909] [INFO   ] Record parsed successfully. Record id: user:6 
-[2019-08-29 13:44:27.920] [INFO   ] Record successfully written to Redis! Record id: user:6 
-[2019-08-29 13:44:37.936] [INFO   ] Record parsed successfully. Record id: user:7 
-[2019-08-29 13:44:37.938] [INFO   ] Record successfully written to Redis! Record id: user:7 
-[2019-08-29 13:44:47.954] [INFO   ] Record parsed successfully. Record id: user:8 
-[2019-08-29 13:44:47.957] [INFO   ] Record successfully written to Redis! Record id: user:8 
-[2019-08-29 13:44:57.981] [INFO   ] Record parsed successfully. Record id: user:9 
-[2019-08-29 13:44:57.981] [INFO   ] Record successfully written to Redis! Record id: user:9 
-[2019-08-29 13:45:08.022] [INFO   ] Record parsed successfully. Record id: user:10 
-[2019-08-29 13:45:08.024] [INFO   ] Record successfully written to Redis! Record id: user:10 
-2019-08-29 13:46:24.069  INFO 9444 --- [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2019-08-29 13:46:24.077  INFO 9444 --- [kafkalistener-0-C-1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
-2019-08-29 13:46:24.093  INFO 9444 --- [kafkalistener-0-C-1] essageListenerContainer$ListenerConsumer : Consumer stopped
+2019-08-30 13:13:38.505  INFO 1104 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version : 2.0.1
+2019-08-30 13:13:38.505  INFO 1104 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId : fa14705e51bd2ce5
+2019-08-30 13:13:38.505  INFO 1104 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] org.apache.kafka.clients.Metadata        : Cluster ID: AbDz6xirSX-HjgL8LWlU4Q
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Discovered group coordinator ANGSTROM:9092 (id: 2147483647 rack: null)
+2019-08-30 13:13:38.520  INFO 1104 --- [main] c.d.k.k.KafkaConsumerApplication         : Started KafkaConsumerApplication in 0.851 seconds (JVM running for 1.338)
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Revoking previously assigned partitions []
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions revoked: []
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] (Re-)joining group
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.AbstractCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Successfully joined group with generation 50
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-2, groupId=group_id] Setting newly assigned partitions [redistopic-0]
+2019-08-30 13:13:38.520  INFO 1104 --- [kafkalistener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions assigned: [redistopic-0]
+[2019-08-30 13:13:51.928] [INFO   ] Record parsed successfully. Record id: user:1 
+[2019-08-30 13:13:51.929] [INFO   ] Record successfully written to Redis! Record id: user:1. Total latency time is 365 ms. Time to process from producer to kafka: 316 ms. Time to process from kafka to redis: 49 ms. 
+[2019-08-30 13:13:52.933] [INFO   ] Record parsed successfully. Record id: user:2 
+[2019-08-30 13:13:52.937] [INFO   ] Record successfully written to Redis! Record id: user:2. Total latency time is 40 ms. Time to process from producer to kafka: 19 ms. Time to process from kafka to redis: 21 ms. 
+[2019-08-30 13:13:53.965] [INFO   ] Record parsed successfully. Record id: user:3 
+[2019-08-30 13:13:53.971] [INFO   ] Record successfully written to Redis! Record id: user:3. Total latency time is 41 ms. Time to process from producer to kafka: 18 ms. Time to process from kafka to redis: 23 ms. 
+[2019-08-30 13:13:55.000] [INFO   ] Record parsed successfully. Record id: user:4 
+[2019-08-30 13:13:55.005] [INFO   ] Record successfully written to Redis! Record id: user:4. Total latency time is 49 ms. Time to process from producer to kafka: 29 ms. Time to process from kafka to redis: 20 ms. 
+[2019-08-30 13:13:56.020] [INFO   ] Record parsed successfully. Record id: user:5 
+[2019-08-30 13:13:56.022] [INFO   ] Record successfully written to Redis! Record id: user:5. Total latency time is 26 ms. Time to process from producer to kafka: 14 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:13:57.023] [INFO   ] Record parsed successfully. Record id: user:6 
+[2019-08-30 13:13:57.023] [INFO   ] Record successfully written to Redis! Record id: user:6. Total latency time is 6 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 4 ms. 
+[2019-08-30 13:13:58.028] [INFO   ] Record parsed successfully. Record id: user:7 
+[2019-08-30 13:13:58.028] [INFO   ] Record successfully written to Redis! Record id: user:7. Total latency time is 7 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 5 ms. 
+[2019-08-30 13:13:59.048] [INFO   ] Record parsed successfully. Record id: user:8 
+[2019-08-30 13:13:59.049] [INFO   ] Record successfully written to Redis! Record id: user:8. Total latency time is 23 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:00.050] [INFO   ] Record parsed successfully. Record id: user:9 
+[2019-08-30 13:14:00.051] [INFO   ] Record successfully written to Redis! Record id: user:9. Total latency time is 8 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 5 ms. 
+[2019-08-30 13:14:01.091] [INFO   ] Record parsed successfully. Record id: user:10 
+[2019-08-30 13:14:01.093] [INFO   ] Record successfully written to Redis! Record id: user:10. Total latency time is 44 ms. Time to process from producer to kafka: 16 ms. Time to process from kafka to redis: 28 ms. 
+[2019-08-30 13:14:02.092] [INFO   ] Record parsed successfully. Record id: user:11 
+[2019-08-30 13:14:02.093] [INFO   ] Record successfully written to Redis! Record id: user:11. Total latency time is 11 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 7 ms. 
+[2019-08-30 13:14:03.113] [INFO   ] Record parsed successfully. Record id: user:12 
+[2019-08-30 13:14:03.116] [INFO   ] Record successfully written to Redis! Record id: user:12. Total latency time is 26 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:04.144] [INFO   ] Record parsed successfully. Record id: user:13 
+[2019-08-30 13:14:04.148] [INFO   ] Record successfully written to Redis! Record id: user:13. Total latency time is 42 ms. Time to process from producer to kafka: 15 ms. Time to process from kafka to redis: 27 ms. 
+[2019-08-30 13:14:05.149] [INFO   ] Record parsed successfully. Record id: user:14 
+[2019-08-30 13:14:05.152] [INFO   ] Record successfully written to Redis! Record id: user:14. Total latency time is 22 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:06.155] [INFO   ] Record parsed successfully. Record id: user:15 
+[2019-08-30 13:14:06.166] [INFO   ] Record successfully written to Redis! Record id: user:15. Total latency time is 11 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:14:07.180] [INFO   ] Record parsed successfully. Record id: user:16 
+[2019-08-30 13:14:07.181] [INFO   ] Record successfully written to Redis! Record id: user:16. Total latency time is 25 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:08.188] [INFO   ] Record parsed successfully. Record id: user:17 
+[2019-08-30 13:14:08.191] [INFO   ] Record successfully written to Redis! Record id: user:17. Total latency time is 23 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:09.211] [INFO   ] Record parsed successfully. Record id: user:18 
+[2019-08-30 13:14:09.217] [INFO   ] Record successfully written to Redis! Record id: user:18. Total latency time is 15 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:10.227] [INFO   ] Record parsed successfully. Record id: user:19 
+[2019-08-30 13:14:10.229] [INFO   ] Record successfully written to Redis! Record id: user:19. Total latency time is 16 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 9 ms. 
+[2019-08-30 13:14:11.246] [INFO   ] Record parsed successfully. Record id: user:20 
+[2019-08-30 13:14:11.250] [INFO   ] Record successfully written to Redis! Record id: user:20. Total latency time is 26 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:12.264] [INFO   ] Record parsed successfully. Record id: user:21 
+[2019-08-30 13:14:12.269] [INFO   ] Record successfully written to Redis! Record id: user:21. Total latency time is 28 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 20 ms. 
+[2019-08-30 13:14:13.291] [INFO   ] Record parsed successfully. Record id: user:22 
+[2019-08-30 13:14:13.296] [INFO   ] Record successfully written to Redis! Record id: user:22. Total latency time is 38 ms. Time to process from producer to kafka: 11 ms. Time to process from kafka to redis: 27 ms. 
+[2019-08-30 13:14:14.283] [INFO   ] Record parsed successfully. Record id: user:23 
+[2019-08-30 13:14:14.284] [INFO   ] Record successfully written to Redis! Record id: user:23. Total latency time is 5 ms. Time to process from producer to kafka: 1 ms. Time to process from kafka to redis: 4 ms. 
+[2019-08-30 13:14:15.305] [INFO   ] Record parsed successfully. Record id: user:24 
+[2019-08-30 13:14:15.308] [INFO   ] Record successfully written to Redis! Record id: user:24. Total latency time is 24 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:16.324] [INFO   ] Record parsed successfully. Record id: user:25 
+[2019-08-30 13:14:16.326] [INFO   ] Record successfully written to Redis! Record id: user:25. Total latency time is 28 ms. Time to process from producer to kafka: 10 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:17.342] [INFO   ] Record parsed successfully. Record id: user:26 
+[2019-08-30 13:14:17.347] [INFO   ] Record successfully written to Redis! Record id: user:26. Total latency time is 28 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 20 ms. 
+[2019-08-30 13:14:18.346] [INFO   ] Record parsed successfully. Record id: user:27 
+[2019-08-30 13:14:18.347] [INFO   ] Record successfully written to Redis! Record id: user:27. Total latency time is 13 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 8 ms. 
+[2019-08-30 13:14:19.373] [INFO   ] Record parsed successfully. Record id: user:28 
+[2019-08-30 13:14:19.376] [INFO   ] Record successfully written to Redis! Record id: user:28. Total latency time is 31 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 22 ms. 
+[2019-08-30 13:14:20.388] [INFO   ] Record parsed successfully. Record id: user:29 
+[2019-08-30 13:14:20.391] [INFO   ] Record successfully written to Redis! Record id: user:29. Total latency time is 28 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:21.405] [INFO   ] Record parsed successfully. Record id: user:30 
+[2019-08-30 13:14:21.409] [INFO   ] Record successfully written to Redis! Record id: user:30. Total latency time is 28 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:22.421] [INFO   ] Record parsed successfully. Record id: user:31 
+[2019-08-30 13:14:22.423] [INFO   ] Record successfully written to Redis! Record id: user:31. Total latency time is 27 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:23.448] [INFO   ] Record parsed successfully. Record id: user:32 
+[2019-08-30 13:14:23.453] [INFO   ] Record successfully written to Redis! Record id: user:32. Total latency time is 33 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 24 ms. 
+[2019-08-30 13:14:24.462] [INFO   ] Record parsed successfully. Record id: user:33 
+[2019-08-30 13:14:24.464] [INFO   ] Record successfully written to Redis! Record id: user:33. Total latency time is 28 ms. Time to process from producer to kafka: 11 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:25.483] [INFO   ] Record parsed successfully. Record id: user:34 
+[2019-08-30 13:14:25.485] [INFO   ] Record successfully written to Redis! Record id: user:34. Total latency time is 28 ms. Time to process from producer to kafka: 11 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:26.498] [INFO   ] Record parsed successfully. Record id: user:35 
+[2019-08-30 13:14:26.501] [INFO   ] Record successfully written to Redis! Record id: user:35. Total latency time is 24 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:27.511] [INFO   ] Record parsed successfully. Record id: user:36 
+[2019-08-30 13:14:27.514] [INFO   ] Record successfully written to Redis! Record id: user:36. Total latency time is 22 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:28.526] [INFO   ] Record parsed successfully. Record id: user:37 
+[2019-08-30 13:14:28.529] [INFO   ] Record successfully written to Redis! Record id: user:37. Total latency time is 23 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:29.541] [INFO   ] Record parsed successfully. Record id: user:38 
+[2019-08-30 13:14:29.545] [INFO   ] Record successfully written to Redis! Record id: user:38. Total latency time is 23 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:30.557] [INFO   ] Record parsed successfully. Record id: user:39 
+[2019-08-30 13:14:30.560] [INFO   ] Record successfully written to Redis! Record id: user:39. Total latency time is 24 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:31.575] [INFO   ] Record parsed successfully. Record id: user:40 
+[2019-08-30 13:14:31.578] [INFO   ] Record successfully written to Redis! Record id: user:40. Total latency time is 27 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:32.590] [INFO   ] Record parsed successfully. Record id: user:41 
+[2019-08-30 13:14:32.593] [INFO   ] Record successfully written to Redis! Record id: user:41. Total latency time is 24 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:33.608] [INFO   ] Record parsed successfully. Record id: user:42 
+[2019-08-30 13:14:33.610] [INFO   ] Record successfully written to Redis! Record id: user:42. Total latency time is 26 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:34.635] [INFO   ] Record parsed successfully. Record id: user:43 
+[2019-08-30 13:14:34.638] [INFO   ] Record successfully written to Redis! Record id: user:43. Total latency time is 31 ms. Time to process from producer to kafka: 12 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:35.646] [INFO   ] Record parsed successfully. Record id: user:44 
+[2019-08-30 13:14:35.650] [INFO   ] Record successfully written to Redis! Record id: user:44. Total latency time is 21 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:36.664] [INFO   ] Record parsed successfully. Record id: user:45 
+[2019-08-30 13:14:36.666] [INFO   ] Record successfully written to Redis! Record id: user:45. Total latency time is 25 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:37.681] [INFO   ] Record parsed successfully. Record id: user:46 
+[2019-08-30 13:14:37.686] [INFO   ] Record successfully written to Redis! Record id: user:46. Total latency time is 27 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 21 ms. 
+[2019-08-30 13:14:38.696] [INFO   ] Record parsed successfully. Record id: user:47 
+[2019-08-30 13:14:38.699] [INFO   ] Record successfully written to Redis! Record id: user:47. Total latency time is 19 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:39.712] [INFO   ] Record parsed successfully. Record id: user:48 
+[2019-08-30 13:14:39.716] [INFO   ] Record successfully written to Redis! Record id: user:48. Total latency time is 23 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:14:40.734] [INFO   ] Record parsed successfully. Record id: user:49 
+[2019-08-30 13:14:40.742] [INFO   ] Record successfully written to Redis! Record id: user:49. Total latency time is 21 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 21 ms. 
+[2019-08-30 13:14:41.740] [INFO   ] Record parsed successfully. Record id: user:50 
+[2019-08-30 13:14:41.743] [INFO   ] Record successfully written to Redis! Record id: user:50. Total latency time is 23 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:42.755] [INFO   ] Record parsed successfully. Record id: user:51 
+[2019-08-30 13:14:42.757] [INFO   ] Record successfully written to Redis! Record id: user:51. Total latency time is 24 ms. Time to process from producer to kafka: 9 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:43.771] [INFO   ] Record parsed successfully. Record id: user:52 
+[2019-08-30 13:14:43.775] [INFO   ] Record successfully written to Redis! Record id: user:52. Total latency time is 22 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:44.785] [INFO   ] Record parsed successfully. Record id: user:53 
+[2019-08-30 13:14:44.788] [INFO   ] Record successfully written to Redis! Record id: user:53. Total latency time is 21 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:45.802] [INFO   ] Record parsed successfully. Record id: user:54 
+[2019-08-30 13:14:45.805] [INFO   ] Record successfully written to Redis! Record id: user:54. Total latency time is 24 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:14:46.813] [INFO   ] Record parsed successfully. Record id: user:55 
+[2019-08-30 13:14:46.815] [INFO   ] Record successfully written to Redis! Record id: user:55. Total latency time is 21 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:47.828] [INFO   ] Record parsed successfully. Record id: user:56 
+[2019-08-30 13:14:47.832] [INFO   ] Record successfully written to Redis! Record id: user:56. Total latency time is 20 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:48.844] [INFO   ] Record parsed successfully. Record id: user:57 
+[2019-08-30 13:14:48.847] [INFO   ] Record successfully written to Redis! Record id: user:57. Total latency time is 22 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:49.854] [INFO   ] Record parsed successfully. Record id: user:58 
+[2019-08-30 13:14:49.858] [INFO   ] Record successfully written to Redis! Record id: user:58. Total latency time is 18 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:14:50.870] [INFO   ] Record parsed successfully. Record id: user:59 
+[2019-08-30 13:14:50.874] [INFO   ] Record successfully written to Redis! Record id: user:59. Total latency time is 22 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:14:51.869] [INFO   ] Record parsed successfully. Record id: user:60 
+[2019-08-30 13:14:51.870] [INFO   ] Record successfully written to Redis! Record id: user:60. Total latency time is 6 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 4 ms. 
+[2019-08-30 13:14:52.873] [INFO   ] Record parsed successfully. Record id: user:61 
+[2019-08-30 13:14:52.873] [INFO   ] Record successfully written to Redis! Record id: user:61. Total latency time is 4 ms. Time to process from producer to kafka: 1 ms. Time to process from kafka to redis: 3 ms. 
+[2019-08-30 13:14:53.889] [INFO   ] Record parsed successfully. Record id: user:62 
+[2019-08-30 13:14:53.892] [INFO   ] Record successfully written to Redis! Record id: user:62. Total latency time is 19 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:54.906] [INFO   ] Record parsed successfully. Record id: user:63 
+[2019-08-30 13:14:54.908] [INFO   ] Record successfully written to Redis! Record id: user:63. Total latency time is 23 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:55.929] [INFO   ] Record parsed successfully. Record id: user:64 
+[2019-08-30 13:14:55.931] [INFO   ] Record successfully written to Redis! Record id: user:64. Total latency time is 29 ms. Time to process from producer to kafka: 10 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:14:56.953] [INFO   ] Record parsed successfully. Record id: user:65 
+[2019-08-30 13:14:56.955] [INFO   ] Record successfully written to Redis! Record id: user:65. Total latency time is 23 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:57.965] [INFO   ] Record parsed successfully. Record id: user:66 
+[2019-08-30 13:14:57.968] [INFO   ] Record successfully written to Redis! Record id: user:66. Total latency time is 19 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:14:58.980] [INFO   ] Record parsed successfully. Record id: user:67 
+[2019-08-30 13:14:58.983] [INFO   ] Record successfully written to Redis! Record id: user:67. Total latency time is 21 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:14:59.995] [INFO   ] Record parsed successfully. Record id: user:68 
+[2019-08-30 13:14:59.998] [INFO   ] Record successfully written to Redis! Record id: user:68. Total latency time is 20 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:15:01.007] [INFO   ] Record parsed successfully. Record id: user:69 
+[2019-08-30 13:15:01.010] [INFO   ] Record successfully written to Redis! Record id: user:69. Total latency time is 20 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:02.020] [INFO   ] Record parsed successfully. Record id: user:70 
+[2019-08-30 13:15:02.022] [INFO   ] Record successfully written to Redis! Record id: user:70. Total latency time is 21 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:03.030] [INFO   ] Record parsed successfully. Record id: user:71 
+[2019-08-30 13:15:03.033] [INFO   ] Record successfully written to Redis! Record id: user:71. Total latency time is 17 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:04.041] [INFO   ] Record parsed successfully. Record id: user:72 
+[2019-08-30 13:15:04.043] [INFO   ] Record successfully written to Redis! Record id: user:72. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:05.053] [INFO   ] Record parsed successfully. Record id: user:73 
+[2019-08-30 13:15:05.055] [INFO   ] Record successfully written to Redis! Record id: user:73. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:06.065] [INFO   ] Record parsed successfully. Record id: user:74 
+[2019-08-30 13:15:06.069] [INFO   ] Record successfully written to Redis! Record id: user:74. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:07.078] [INFO   ] Record parsed successfully. Record id: user:75 
+[2019-08-30 13:15:07.084] [INFO   ] Record successfully written to Redis! Record id: user:75. Total latency time is 16 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:15:08.079] [INFO   ] Record parsed successfully. Record id: user:76 
+[2019-08-30 13:15:08.082] [INFO   ] Record successfully written to Redis! Record id: user:76. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:09.090] [INFO   ] Record parsed successfully. Record id: user:77 
+[2019-08-30 13:15:09.093] [INFO   ] Record successfully written to Redis! Record id: user:77. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:10.105] [INFO   ] Record parsed successfully. Record id: user:78 
+[2019-08-30 13:15:10.108] [INFO   ] Record successfully written to Redis! Record id: user:78. Total latency time is 20 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:11.124] [INFO   ] Record parsed successfully. Record id: user:79 
+[2019-08-30 13:15:11.129] [INFO   ] Record successfully written to Redis! Record id: user:79. Total latency time is 19 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 19 ms. 
+[2019-08-30 13:15:12.124] [INFO   ] Record parsed successfully. Record id: user:80 
+[2019-08-30 13:15:12.127] [INFO   ] Record successfully written to Redis! Record id: user:80. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:13.137] [INFO   ] Record parsed successfully. Record id: user:81 
+[2019-08-30 13:15:13.140] [INFO   ] Record successfully written to Redis! Record id: user:81. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:14.153] [INFO   ] Record parsed successfully. Record id: user:82 
+[2019-08-30 13:15:14.157] [INFO   ] Record successfully written to Redis! Record id: user:82. Total latency time is 25 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:15:15.175] [INFO   ] Record parsed successfully. Record id: user:83 
+[2019-08-30 13:15:15.177] [INFO   ] Record successfully written to Redis! Record id: user:83. Total latency time is 23 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:15:16.191] [INFO   ] Record parsed successfully. Record id: user:84 
+[2019-08-30 13:15:16.193] [INFO   ] Record successfully written to Redis! Record id: user:84. Total latency time is 25 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:15:17.204] [INFO   ] Record parsed successfully. Record id: user:85 
+[2019-08-30 13:15:17.207] [INFO   ] Record successfully written to Redis! Record id: user:85. Total latency time is 22 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 17 ms. 
+[2019-08-30 13:15:18.221] [INFO   ] Record parsed successfully. Record id: user:86 
+[2019-08-30 13:15:18.225] [INFO   ] Record successfully written to Redis! Record id: user:86. Total latency time is 27 ms. Time to process from producer to kafka: 7 ms. Time to process from kafka to redis: 20 ms. 
+[2019-08-30 13:15:19.229] [INFO   ] Record parsed successfully. Record id: user:87 
+[2019-08-30 13:15:19.232] [INFO   ] Record successfully written to Redis! Record id: user:87. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:20.240] [INFO   ] Record parsed successfully. Record id: user:88 
+[2019-08-30 13:15:20.243] [INFO   ] Record successfully written to Redis! Record id: user:88. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:21.249] [INFO   ] Record parsed successfully. Record id: user:89 
+[2019-08-30 13:15:21.252] [INFO   ] Record successfully written to Redis! Record id: user:89. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:22.260] [INFO   ] Record parsed successfully. Record id: user:90 
+[2019-08-30 13:15:22.262] [INFO   ] Record successfully written to Redis! Record id: user:90. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:23.270] [INFO   ] Record parsed successfully. Record id: user:91 
+[2019-08-30 13:15:23.273] [INFO   ] Record successfully written to Redis! Record id: user:91. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:24.282] [INFO   ] Record parsed successfully. Record id: user:92 
+[2019-08-30 13:15:24.284] [INFO   ] Record successfully written to Redis! Record id: user:92. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:25.295] [INFO   ] Record parsed successfully. Record id: user:93 
+[2019-08-30 13:15:25.297] [INFO   ] Record successfully written to Redis! Record id: user:93. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:26.305] [INFO   ] Record parsed successfully. Record id: user:94 
+[2019-08-30 13:15:26.308] [INFO   ] Record successfully written to Redis! Record id: user:94. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:27.315] [INFO   ] Record parsed successfully. Record id: user:95 
+[2019-08-30 13:15:27.318] [INFO   ] Record successfully written to Redis! Record id: user:95. Total latency time is 16 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:15:28.329] [INFO   ] Record parsed successfully. Record id: user:96 
+[2019-08-30 13:15:28.333] [INFO   ] Record successfully written to Redis! Record id: user:96. Total latency time is 20 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:15:29.342] [INFO   ] Record parsed successfully. Record id: user:97 
+[2019-08-30 13:15:29.344] [INFO   ] Record successfully written to Redis! Record id: user:97. Total latency time is 19 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:30.351] [INFO   ] Record parsed successfully. Record id: user:98 
+[2019-08-30 13:15:30.353] [INFO   ] Record successfully written to Redis! Record id: user:98. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:31.361] [INFO   ] Record parsed successfully. Record id: user:99 
+[2019-08-30 13:15:31.362] [INFO   ] Record successfully written to Redis! Record id: user:99. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:15:32.361] [INFO   ] Record parsed successfully. Record id: user:100 
+[2019-08-30 13:15:32.377] [INFO   ] Record successfully written to Redis! Record id: user:100. Total latency time is 16 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:15:33.376] [INFO   ] Record parsed successfully. Record id: user:101 
+[2019-08-30 13:15:33.378] [INFO   ] Record successfully written to Redis! Record id: user:101. Total latency time is 17 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:34.388] [INFO   ] Record parsed successfully. Record id: user:102 
+[2019-08-30 13:15:34.391] [INFO   ] Record successfully written to Redis! Record id: user:102. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:35.397] [INFO   ] Record parsed successfully. Record id: user:103 
+[2019-08-30 13:15:35.399] [INFO   ] Record successfully written to Redis! Record id: user:103. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:36.409] [INFO   ] Record parsed successfully. Record id: user:104 
+[2019-08-30 13:15:36.411] [INFO   ] Record successfully written to Redis! Record id: user:104. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:37.420] [INFO   ] Record parsed successfully. Record id: user:105 
+[2019-08-30 13:15:37.423] [INFO   ] Record successfully written to Redis! Record id: user:105. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:38.430] [INFO   ] Record parsed successfully. Record id: user:106 
+[2019-08-30 13:15:38.433] [INFO   ] Record successfully written to Redis! Record id: user:106. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:39.442] [INFO   ] Record parsed successfully. Record id: user:107 
+[2019-08-30 13:15:39.446] [INFO   ] Record successfully written to Redis! Record id: user:107. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:40.450] [INFO   ] Record parsed successfully. Record id: user:108 
+[2019-08-30 13:15:40.452] [INFO   ] Record successfully written to Redis! Record id: user:108. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:15:41.462] [INFO   ] Record parsed successfully. Record id: user:109 
+[2019-08-30 13:15:41.465] [INFO   ] Record successfully written to Redis! Record id: user:109. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:42.471] [INFO   ] Record parsed successfully. Record id: user:110 
+[2019-08-30 13:15:42.474] [INFO   ] Record successfully written to Redis! Record id: user:110. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:43.481] [INFO   ] Record parsed successfully. Record id: user:111 
+[2019-08-30 13:15:43.485] [INFO   ] Record successfully written to Redis! Record id: user:111. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:44.492] [INFO   ] Record parsed successfully. Record id: user:112 
+[2019-08-30 13:15:44.495] [INFO   ] Record successfully written to Redis! Record id: user:112. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:15:45.503] [INFO   ] Record parsed successfully. Record id: user:113 
+[2019-08-30 13:15:45.505] [INFO   ] Record successfully written to Redis! Record id: user:113. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:46.514] [INFO   ] Record parsed successfully. Record id: user:114 
+[2019-08-30 13:15:46.517] [INFO   ] Record successfully written to Redis! Record id: user:114. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:47.526] [INFO   ] Record parsed successfully. Record id: user:115 
+[2019-08-30 13:15:47.528] [INFO   ] Record successfully written to Redis! Record id: user:115. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:48.535] [INFO   ] Record parsed successfully. Record id: user:116 
+[2019-08-30 13:15:48.537] [INFO   ] Record successfully written to Redis! Record id: user:116. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:49.547] [INFO   ] Record parsed successfully. Record id: user:117 
+[2019-08-30 13:15:49.550] [INFO   ] Record successfully written to Redis! Record id: user:117. Total latency time is 18 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:50.559] [INFO   ] Record parsed successfully. Record id: user:118 
+[2019-08-30 13:15:50.561] [INFO   ] Record successfully written to Redis! Record id: user:118. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:15:51.569] [INFO   ] Record parsed successfully. Record id: user:119 
+[2019-08-30 13:15:51.571] [INFO   ] Record successfully written to Redis! Record id: user:119. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:52.578] [INFO   ] Record parsed successfully. Record id: user:120 
+[2019-08-30 13:15:52.580] [INFO   ] Record successfully written to Redis! Record id: user:120. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:15:53.589] [INFO   ] Record parsed successfully. Record id: user:121 
+[2019-08-30 13:15:53.592] [INFO   ] Record successfully written to Redis! Record id: user:121. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:15:54.600] [INFO   ] Record parsed successfully. Record id: user:122 
+[2019-08-30 13:15:54.602] [INFO   ] Record successfully written to Redis! Record id: user:122. Total latency time is 15 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:15:55.612] [INFO   ] Record parsed successfully. Record id: user:123 
+[2019-08-30 13:15:55.614] [INFO   ] Record successfully written to Redis! Record id: user:123. Total latency time is 17 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:56.622] [INFO   ] Record parsed successfully. Record id: user:124 
+[2019-08-30 13:15:56.625] [INFO   ] Record successfully written to Redis! Record id: user:124. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:15:57.639] [INFO   ] Record parsed successfully. Record id: user:125 
+[2019-08-30 13:15:57.641] [INFO   ] Record successfully written to Redis! Record id: user:125. Total latency time is 19 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:15:58.651] [INFO   ] Record parsed successfully. Record id: user:126 
+[2019-08-30 13:15:58.654] [INFO   ] Record successfully written to Redis! Record id: user:126. Total latency time is 20 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:15:59.663] [INFO   ] Record parsed successfully. Record id: user:127 
+[2019-08-30 13:15:59.666] [INFO   ] Record successfully written to Redis! Record id: user:127. Total latency time is 20 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 16 ms. 
+[2019-08-30 13:16:00.682] [INFO   ] Record parsed successfully. Record id: user:128 
+[2019-08-30 13:16:00.685] [INFO   ] Record successfully written to Redis! Record id: user:128. Total latency time is 23 ms. Time to process from producer to kafka: 8 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:16:01.691] [INFO   ] Record parsed successfully. Record id: user:129 
+[2019-08-30 13:16:01.693] [INFO   ] Record successfully written to Redis! Record id: user:129. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:02.706] [INFO   ] Record parsed successfully. Record id: user:130 
+[2019-08-30 13:16:02.708] [INFO   ] Record successfully written to Redis! Record id: user:130. Total latency time is 20 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:16:03.702] [INFO   ] Record parsed successfully. Record id: user:131 
+[2019-08-30 13:16:03.702] [INFO   ] Record successfully written to Redis! Record id: user:131. Total latency time is 0 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 0 ms. 
+[2019-08-30 13:16:04.710] [INFO   ] Record parsed successfully. Record id: user:132 
+[2019-08-30 13:16:04.711] [INFO   ] Record successfully written to Redis! Record id: user:132. Total latency time is 9 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 7 ms. 
+[2019-08-30 13:16:05.721] [INFO   ] Record parsed successfully. Record id: user:133 
+[2019-08-30 13:16:05.723] [INFO   ] Record successfully written to Redis! Record id: user:133. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:06.730] [INFO   ] Record parsed successfully. Record id: user:134 
+[2019-08-30 13:16:06.733] [INFO   ] Record successfully written to Redis! Record id: user:134. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:07.736] [INFO   ] Record parsed successfully. Record id: user:135 
+[2019-08-30 13:16:07.738] [INFO   ] Record successfully written to Redis! Record id: user:135. Total latency time is 11 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 8 ms. 
+[2019-08-30 13:16:08.735] [INFO   ] Record parsed successfully. Record id: user:136 
+[2019-08-30 13:16:08.735] [INFO   ] Record successfully written to Redis! Record id: user:136. Total latency time is 0 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 0 ms. 
+[2019-08-30 13:16:09.747] [INFO   ] Record parsed successfully. Record id: user:137 
+[2019-08-30 13:16:09.750] [INFO   ] Record successfully written to Redis! Record id: user:137. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:10.746] [INFO   ] Record parsed successfully. Record id: user:138 
+[2019-08-30 13:16:10.746] [INFO   ] Record successfully written to Redis! Record id: user:138. Total latency time is 2 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 2 ms. 
+[2019-08-30 13:16:11.759] [INFO   ] Record parsed successfully. Record id: user:139 
+[2019-08-30 13:16:11.761] [INFO   ] Record successfully written to Redis! Record id: user:139. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:12.763] [INFO   ] Record parsed successfully. Record id: user:140 
+[2019-08-30 13:16:12.764] [INFO   ] Record successfully written to Redis! Record id: user:140. Total latency time is 9 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 7 ms. 
+[2019-08-30 13:16:13.773] [INFO   ] Record parsed successfully. Record id: user:141 
+[2019-08-30 13:16:13.776] [INFO   ] Record successfully written to Redis! Record id: user:141. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:14.773] [INFO   ] Record parsed successfully. Record id: user:142 
+[2019-08-30 13:16:14.773] [INFO   ] Record successfully written to Redis! Record id: user:142. Total latency time is 2 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 2 ms. 
+[2019-08-30 13:16:15.787] [INFO   ] Record parsed successfully. Record id: user:143 
+[2019-08-30 13:16:15.790] [INFO   ] Record successfully written to Redis! Record id: user:143. Total latency time is 16 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:16.794] [INFO   ] Record parsed successfully. Record id: user:144 
+[2019-08-30 13:16:16.795] [INFO   ] Record successfully written to Redis! Record id: user:144. Total latency time is 13 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:16:17.805] [INFO   ] Record parsed successfully. Record id: user:145 
+[2019-08-30 13:16:17.808] [INFO   ] Record successfully written to Redis! Record id: user:145. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:18.816] [INFO   ] Record parsed successfully. Record id: user:146 
+[2019-08-30 13:16:18.819] [INFO   ] Record successfully written to Redis! Record id: user:146. Total latency time is 18 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:19.825] [INFO   ] Record parsed successfully. Record id: user:147 
+[2019-08-30 13:16:19.828] [INFO   ] Record successfully written to Redis! Record id: user:147. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:20.837] [INFO   ] Record parsed successfully. Record id: user:148 
+[2019-08-30 13:16:20.840] [INFO   ] Record successfully written to Redis! Record id: user:148. Total latency time is 16 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:21.845] [INFO   ] Record parsed successfully. Record id: user:149 
+[2019-08-30 13:16:21.847] [INFO   ] Record successfully written to Redis! Record id: user:149. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:22.858] [INFO   ] Record parsed successfully. Record id: user:150 
+[2019-08-30 13:16:22.860] [INFO   ] Record successfully written to Redis! Record id: user:150. Total latency time is 17 ms. Time to process from producer to kafka: 5 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:23.859] [INFO   ] Record parsed successfully. Record id: user:151 
+[2019-08-30 13:16:23.860] [INFO   ] Record successfully written to Redis! Record id: user:151. Total latency time is 6 ms. Time to process from producer to kafka: 1 ms. Time to process from kafka to redis: 5 ms. 
+[2019-08-30 13:16:24.871] [INFO   ] Record parsed successfully. Record id: user:152 
+[2019-08-30 13:16:24.873] [INFO   ] Record successfully written to Redis! Record id: user:152. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:25.881] [INFO   ] Record parsed successfully. Record id: user:153 
+[2019-08-30 13:16:25.883] [INFO   ] Record successfully written to Redis! Record id: user:153. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:26.891] [INFO   ] Record parsed successfully. Record id: user:154 
+[2019-08-30 13:16:26.893] [INFO   ] Record successfully written to Redis! Record id: user:154. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:27.900] [INFO   ] Record parsed successfully. Record id: user:155 
+[2019-08-30 13:16:27.903] [INFO   ] Record successfully written to Redis! Record id: user:155. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:28.910] [INFO   ] Record parsed successfully. Record id: user:156 
+[2019-08-30 13:16:28.913] [INFO   ] Record successfully written to Redis! Record id: user:156. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:29.920] [INFO   ] Record parsed successfully. Record id: user:157 
+[2019-08-30 13:16:29.923] [INFO   ] Record successfully written to Redis! Record id: user:157. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:30.933] [INFO   ] Record parsed successfully. Record id: user:158 
+[2019-08-30 13:16:30.938] [INFO   ] Record successfully written to Redis! Record id: user:158. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:16:31.943] [INFO   ] Record parsed successfully. Record id: user:159 
+[2019-08-30 13:16:31.945] [INFO   ] Record successfully written to Redis! Record id: user:159. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:32.955] [INFO   ] Record parsed successfully. Record id: user:160 
+[2019-08-30 13:16:32.957] [INFO   ] Record successfully written to Redis! Record id: user:160. Total latency time is 18 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:16:33.966] [INFO   ] Record parsed successfully. Record id: user:161 
+[2019-08-30 13:16:33.969] [INFO   ] Record successfully written to Redis! Record id: user:161. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:34.979] [INFO   ] Record parsed successfully. Record id: user:162 
+[2019-08-30 13:16:34.981] [INFO   ] Record successfully written to Redis! Record id: user:162. Total latency time is 19 ms. Time to process from producer to kafka: 6 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:35.988] [INFO   ] Record parsed successfully. Record id: user:163 
+[2019-08-30 13:16:35.990] [INFO   ] Record successfully written to Redis! Record id: user:163. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:36.998] [INFO   ] Record parsed successfully. Record id: user:164 
+[2019-08-30 13:16:37.000] [INFO   ] Record successfully written to Redis! Record id: user:164. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:38.009] [INFO   ] Record parsed successfully. Record id: user:165 
+[2019-08-30 13:16:38.012] [INFO   ] Record successfully written to Redis! Record id: user:165. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:39.018] [INFO   ] Record parsed successfully. Record id: user:166 
+[2019-08-30 13:16:39.020] [INFO   ] Record successfully written to Redis! Record id: user:166. Total latency time is 13 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:16:40.029] [INFO   ] Record parsed successfully. Record id: user:167 
+[2019-08-30 13:16:40.031] [INFO   ] Record successfully written to Redis! Record id: user:167. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:41.051] [INFO   ] Record parsed successfully. Record id: user:168 
+[2019-08-30 13:16:41.053] [INFO   ] Record successfully written to Redis! Record id: user:168. Total latency time is 24 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 20 ms. 
+[2019-08-30 13:16:42.062] [INFO   ] Record parsed successfully. Record id: user:169 
+[2019-08-30 13:16:42.064] [INFO   ] Record successfully written to Redis! Record id: user:169. Total latency time is 17 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 14 ms. 
+[2019-08-30 13:16:43.071] [INFO   ] Record parsed successfully. Record id: user:170 
+[2019-08-30 13:16:43.073] [INFO   ] Record successfully written to Redis! Record id: user:170. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:44.075] [INFO   ] Record parsed successfully. Record id: user:171 
+[2019-08-30 13:16:44.076] [INFO   ] Record successfully written to Redis! Record id: user:171. Total latency time is 9 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 7 ms. 
+[2019-08-30 13:16:45.094] [INFO   ] Record parsed successfully. Record id: user:172 
+[2019-08-30 13:16:45.097] [INFO   ] Record successfully written to Redis! Record id: user:172. Total latency time is 18 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 18 ms. 
+[2019-08-30 13:16:46.092] [INFO   ] Record parsed successfully. Record id: user:173 
+[2019-08-30 13:16:46.094] [INFO   ] Record successfully written to Redis! Record id: user:173. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:47.092] [INFO   ] Record parsed successfully. Record id: user:174 
+[2019-08-30 13:16:47.092] [INFO   ] Record successfully written to Redis! Record id: user:174. Total latency time is 3 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 3 ms. 
+[2019-08-30 13:16:48.106] [INFO   ] Record parsed successfully. Record id: user:175 
+[2019-08-30 13:16:48.108] [INFO   ] Record successfully written to Redis! Record id: user:175. Total latency time is 16 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:49.112] [INFO   ] Record parsed successfully. Record id: user:176 
+[2019-08-30 13:16:49.126] [INFO   ] Record successfully written to Redis! Record id: user:176. Total latency time is 13 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:50.126] [INFO   ] Record parsed successfully. Record id: user:177 
+[2019-08-30 13:16:50.129] [INFO   ] Record successfully written to Redis! Record id: user:177. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:16:51.136] [INFO   ] Record parsed successfully. Record id: user:178 
+[2019-08-30 13:16:51.138] [INFO   ] Record successfully written to Redis! Record id: user:178. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:52.145] [INFO   ] Record parsed successfully. Record id: user:179 
+[2019-08-30 13:16:52.147] [INFO   ] Record successfully written to Redis! Record id: user:179. Total latency time is 15 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:16:53.153] [INFO   ] Record parsed successfully. Record id: user:180 
+[2019-08-30 13:16:53.155] [INFO   ] Record successfully written to Redis! Record id: user:180. Total latency time is 13 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:16:54.152] [INFO   ] Record parsed successfully. Record id: user:181 
+[2019-08-30 13:16:54.153] [INFO   ] Record successfully written to Redis! Record id: user:181. Total latency time is 3 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 3 ms. 
+[2019-08-30 13:16:55.167] [INFO   ] Record parsed successfully. Record id: user:182 
+[2019-08-30 13:16:55.169] [INFO   ] Record successfully written to Redis! Record id: user:182. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:16:56.173] [INFO   ] Record parsed successfully. Record id: user:183 
+[2019-08-30 13:16:56.189] [INFO   ] Record successfully written to Redis! Record id: user:183. Total latency time is 15 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 15 ms. 
+[2019-08-30 13:16:57.184] [INFO   ] Record parsed successfully. Record id: user:184 
+[2019-08-30 13:16:57.186] [INFO   ] Record successfully written to Redis! Record id: user:184. Total latency time is 13 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:16:58.195] [INFO   ] Record parsed successfully. Record id: user:185 
+[2019-08-30 13:16:58.196] [INFO   ] Record successfully written to Redis! Record id: user:185. Total latency time is 13 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 10 ms. 
+[2019-08-30 13:16:59.198] [INFO   ] Record parsed successfully. Record id: user:186 
+[2019-08-30 13:16:59.198] [INFO   ] Record successfully written to Redis! Record id: user:186. Total latency time is 7 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 5 ms. 
+[2019-08-30 13:17:00.208] [INFO   ] Record parsed successfully. Record id: user:187 
+[2019-08-30 13:17:00.211] [INFO   ] Record successfully written to Redis! Record id: user:187. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:01.219] [INFO   ] Record parsed successfully. Record id: user:188 
+[2019-08-30 13:17:01.222] [INFO   ] Record successfully written to Redis! Record id: user:188. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:17:02.231] [INFO   ] Record parsed successfully. Record id: user:189 
+[2019-08-30 13:17:02.233] [INFO   ] Record successfully written to Redis! Record id: user:189. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:17:03.244] [INFO   ] Record parsed successfully. Record id: user:190 
+[2019-08-30 13:17:03.247] [INFO   ] Record successfully written to Redis! Record id: user:190. Total latency time is 17 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:17:04.246] [INFO   ] Record parsed successfully. Record id: user:191 
+[2019-08-30 13:17:04.247] [INFO   ] Record successfully written to Redis! Record id: user:191. Total latency time is 7 ms. Time to process from producer to kafka: 2 ms. Time to process from kafka to redis: 5 ms. 
+[2019-08-30 13:17:05.259] [INFO   ] Record parsed successfully. Record id: user:192 
+[2019-08-30 13:17:05.262] [INFO   ] Record successfully written to Redis! Record id: user:192. Total latency time is 16 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 13 ms. 
+[2019-08-30 13:17:06.268] [INFO   ] Record parsed successfully. Record id: user:193 
+[2019-08-30 13:17:06.270] [INFO   ] Record successfully written to Redis! Record id: user:193. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:07.277] [INFO   ] Record parsed successfully. Record id: user:194 
+[2019-08-30 13:17:07.280] [INFO   ] Record successfully written to Redis! Record id: user:194. Total latency time is 14 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:08.289] [INFO   ] Record parsed successfully. Record id: user:195 
+[2019-08-30 13:17:08.290] [INFO   ] Record successfully written to Redis! Record id: user:195. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:09.301] [INFO   ] Record parsed successfully. Record id: user:196 
+[2019-08-30 13:17:09.304] [INFO   ] Record successfully written to Redis! Record id: user:196. Total latency time is 16 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 12 ms. 
+[2019-08-30 13:17:10.299] [INFO   ] Record parsed successfully. Record id: user:197 
+[2019-08-30 13:17:10.299] [INFO   ] Record successfully written to Redis! Record id: user:197. Total latency time is 0 ms. Time to process from producer to kafka: 0 ms. Time to process from kafka to redis: 0 ms. 
+[2019-08-30 13:17:11.312] [INFO   ] Record parsed successfully. Record id: user:198 
+[2019-08-30 13:17:11.315] [INFO   ] Record successfully written to Redis! Record id: user:198. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:12.322] [INFO   ] Record parsed successfully. Record id: user:199 
+[2019-08-30 13:17:12.324] [INFO   ] Record successfully written to Redis! Record id: user:199. Total latency time is 15 ms. Time to process from producer to kafka: 4 ms. Time to process from kafka to redis: 11 ms. 
+[2019-08-30 13:17:13.332] [INFO   ] Record parsed successfully. Record id: user:200 
+[2019-08-30 13:17:13.334] [INFO   ] Record successfully written to Redis! Record id: user:200. Total latency time is 16 ms. Time to process from producer to kafka: 3 ms. Time to process from kafka to redis: 13 ms. 
+2019-08-30 13:22:51.021  INFO 1104 --- [RMI TCP Connection(25)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-08-30 13:22:51.028  INFO 1104 --- [kafkalistener-0-C-1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService
+2019-08-30 13:22:51.033  INFO 1104 --- [kafkalistener-0-C-1] essageListenerContainer$ListenerConsumer : Consumer stopped

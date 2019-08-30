@@ -1,5 +1,8 @@
 package com.devoteam.kafka.kafkaproducer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -23,6 +26,9 @@ public class UserResource {
 		for(Integer i = 1; i <= RECORDS_COUNT; i++) {
 			
 			Model m = new Model();
+			Date d = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+			String strDate = sdf.format(d);
 			m.setId("user:" + i);
 			m.setUsername("User" + i);
 			m.setPassword("Password" + i);
@@ -34,13 +40,14 @@ public class UserResource {
 			m.setAttribute4("attr4:" + i);
 			m.setAttribute5("attr5:" + i);
 			m.setAttribute6("attr6:" + i);
+			m.setCreationTime(strDate);
 			
 			ObjectMapper objectMapper = new ObjectMapper();
 			String json = objectMapper.writeValueAsString(m);
 
 			kafkaTemplate.send(TOPIC, json);
-			System.out.println("MESSAGE SENT!: " + json);
-			Thread.sleep(1000);
+			/*System.out.println("MESSAGE SENT!: " + json);
+			Thread.sleep(1000);*/
 		}
 		
 	}

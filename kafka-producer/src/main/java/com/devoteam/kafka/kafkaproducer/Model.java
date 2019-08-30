@@ -1,5 +1,7 @@
 package com.devoteam.kafka.kafkaproducer;
 
+import java.util.Date;
+
 public class Model {
 	
 	private String id;
@@ -13,6 +15,7 @@ public class Model {
 	private String attribute4;
 	private String attribute5;
 	private String attribute6;
+	private String creationTime;
 	
 	public Model() {
 		super();
@@ -20,7 +23,7 @@ public class Model {
 	}
 
 	public Model(String id, String username, String password, Integer age, String gender, String attribute1,
-			String attribute2, String attribute3, String attribute4, String attribute5, String attribute6) {
+			String attribute2, String attribute3, String attribute4, String attribute5, String attribute6, String creationTime) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -33,6 +36,7 @@ public class Model {
 		this.attribute4 = attribute4;
 		this.attribute5 = attribute5;
 		this.attribute6 = attribute6;
+		this.creationTime = creationTime;
 	}
 
 	public String getId() {
@@ -121,6 +125,14 @@ public class Model {
 
 	public void setAttribute6(String attribute6) {
 		this.attribute6 = attribute6;
+	}
+
+	public String getCreationTime() {
+		return creationTime;
+	}
+
+	public void setCreationTime(String creationTime) {
+		this.creationTime = creationTime;
 	}
 
 }

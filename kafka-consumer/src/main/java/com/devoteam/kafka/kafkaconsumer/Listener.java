@@ -1,6 +1,7 @@
 package com.devoteam.kafka.kafkaconsumer;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ import java.util.logging.SimpleFormatter;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -123,20 +125,20 @@ public class Listener {
 	}
 	
 	@KafkaListener(topics = "${kafka.topic}", id = "kafkalistener", groupId = "${kafka.group.id}")
-	public void consume(String message) throws InterruptedException  {	
+	public void consume(ConsumerRecord<Integer, String> message) throws InterruptedException  {	
 			
 		Model m = parseJson(message);   //try to parse the incoming message
 		
 		if (m != null) {    //if parse was successful, try to insert the record into redis
-			insertRecord(m);
+			insertRecord(m, message.timestamp());
 		}
 		
 	}
 	
-	public Model parseJson(String message) {
+	public Model parseJson(ConsumerRecord<Integer, String> message) {
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();		 
-			Model m = objectMapper.readValue(message, Model.class);	//deserialize the JSON message we received, create model object
+			Model m = objectMapper.readValue(message.value(), Model.class);	//deserialize the JSON message we received, create model object
 			LOGGER.log(Level.INFO, "Record parsed successfully. Record id: " + m.getId());
 			return m;
 		}
@@ -147,7 +149,7 @@ public class Listener {
 		}
 	}
 	
-	public void insertRecord(Model m) throws InterruptedException {   //function which inserts the record into redis 
+	public void insertRecord(Model m, long timestampKafka) throws InterruptedException {   //function which inserts the record into redis 
 		HashMap<String, String> hmap = new HashMap<String, String>();  //hashmap is used to insert a new hash to redis
 		hmap.put("id", m.getId());
 		hmap.put("username", m.getUsername());
@@ -162,7 +164,16 @@ public class Listener {
 		hmap.put("attribute6", m.getAttribute6());
 		try {
 			jedis.hmset(m.getId(), hmap);   //add a new hash to redis
-			LOGGER.log(Level.INFO, "Record successfully written to Redis! Record id: " + m.getId());
+			Date writeTime = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+			Date creationTime = sdf.parse(m.getCreationTime());
+			long diffAbsolute = writeTime.getTime() - creationTime.getTime();
+			long diffKafkaConsumer = writeTime.getTime() - timestampKafka;
+			long diffKafkaProducer = timestampKafka - creationTime.getTime();
+			LOGGER.log(Level.INFO, "Record successfully written to Redis! Record id: " + m.getId() + 
+					". Total latency time is " + diffAbsolute + " ms." +
+					" Time to process from producer to kafka: " + diffKafkaProducer + " ms." +
+					" Time to process from kafka to redis: " + diffKafkaConsumer + " ms.");
 		}
 		catch (Exception e) {
 			LOGGER.log(Level.SEVERE, "Writing to Redis has failed!");
@@ -174,7 +185,6 @@ public class Listener {
 	
 	@PreDestroy
 	public void delete() throws IOException {    //before we destroy the bean, close the connection towards redis
-		LOGGER.log(Level.INFO, "Application shutting down!");
 		jedis.close();
 	}
 
