@@ -170,7 +170,6 @@ public class WebController {
 	
 	@PreDestroy
 	public void delete() throws IOException {    //before we destroy the bean, close the connection towards redis
-		LOGGER.log(Level.INFO, "Application shutting down!");
 		jedis.close();
 	}
 	
