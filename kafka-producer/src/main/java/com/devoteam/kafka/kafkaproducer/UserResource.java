@@ -18,7 +18,7 @@ public class UserResource {
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
 	private static final String TOPIC = "redistopic";
-	private static final Integer RECORDS_COUNT = 10000;
+	private static final Integer RECORDS_COUNT = 100000;
 	
 	@Bean
 	public void post() throws InterruptedException, JsonProcessingException {
