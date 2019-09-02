@@ -304,3 +304,24 @@
 [2019-09-02 12:17:24.296] [INFO   ] Record with id 088 does not exist! Returning 404... 
 [2019-09-02 12:19:05.801] [INFO   ] REST request arrived! Requested id: 87 
 [2019-09-02 12:19:05.801] [INFO   ] Record with id 87 found! Returning response... 
+2019-09-02 12:45:32.186  INFO 14532 --- [RMI TCP Connection(133)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-09-02 12:47:13.693  INFO 10180 --- [main] application.Application                  : Starting Application on ANGSTROM with PID 10180 (started by Mile in C:\Users\Mile\Desktop\MSA GIT\MSA\connectionRedis-master)
+2019-09-02 12:47:13.694  INFO 10180 --- [main] application.Application                  : No active profile set, falling back to default profiles: default
+2019-09-02 12:47:14.124  INFO 10180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-09-02 12:47:14.126  INFO 10180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-02 12:47:14.143  INFO 10180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-09-02 12:47:14.421  INFO 10180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-02 12:47:14.437  INFO 10180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-02 12:47:14.437  INFO 10180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-09-02 12:47:14.497  INFO 10180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-02 12:47:14.497  INFO 10180 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 776 ms
+[2019-09-02 12:47:14.533] [INFO   ] REST API initialized! 
+[2019-09-02 12:47:14.542] [INFO   ] Successfully connected to Redis! 
+2019-09-02 12:47:14.977  INFO 10180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-02 12:47:14.979  INFO 10180 --- [main] application.Application                  : Started Application in 1.518 seconds (JVM running for 2.043)
+2019-09-02 12:47:55.535  INFO 10180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-02 12:47:55.535  INFO 10180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-02 12:47:55.540  INFO 10180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+[2019-09-02 12:47:55.578] [INFO   ] REST request arrived! Requested id: 78 
+[2019-09-02 12:47:55.583] [INFO   ] Record with id 78 found! Returning response... 
+2019-09-02 12:49:47.311  INFO 10180 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
